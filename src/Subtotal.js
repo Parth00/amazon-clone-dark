@@ -4,7 +4,7 @@ import CurrencyFormat from "react-currency-format"
 import { useStateValue } from './StateProvider';
 
 function Subtotal() {
-    const [{ basket }, dispatch] = useStateValue();
+    const [{ basket }] = useStateValue();
 
 
     let subTotalPrice = basket.reduce((amount, item) => { return amount + item.price }, 0);

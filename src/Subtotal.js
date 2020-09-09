@@ -7,7 +7,7 @@ function Subtotal() {
     const [{ basket }, dispatch] = useStateValue();
 
 
-    let subTotalPrice = basket.reduce((a, b) => { return a + b.price }, 0);
+    let subTotalPrice = basket.reduce((amount, item) => { return amount + item.price }, 0);
 
 
     return (

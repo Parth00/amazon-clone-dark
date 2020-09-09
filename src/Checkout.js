@@ -26,19 +26,11 @@ function Checkout() {
                             price={item.price}
                             rating={item.rating}
                         />
-                        // <CheckoutProduct
-                        //     id="12345"
-                        //     title="Test product"
-                        //     image="https://m.media-amazon.com/images/I/51WIKlio9qL.jpg"
-                        //     price={199.99}
-                        //     rating={5}
-                        // />
                     ))}
                 </div>
             </div>
             <div className="checkout__right">
                 <Subtotal />
-
             </div>
         </div>
     )

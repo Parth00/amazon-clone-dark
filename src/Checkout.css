@@ -1,9 +1,30 @@
-.checkout {
+/* .checkout {
   display: flex;
   padding: 20px;
-  background-color: white;
+  background-color: #161625;
   height: max-content;
+} */
+
+.checkout {
+  background-color: #161625;
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1500px;
+  padding: 20px;
 }
+
+.checkout__left {
+  padding-right: 20px;
+}
+
+.checkout__left > div > h3,
+h2 {
+  color: white;
+}
+
 .checkout__ad {
   width: 100%;
   margin-bottom: 10px;
@@ -11,6 +32,6 @@
 
 .checkout__title {
   margin-right: 10px;
-  padding: 10px;
+  padding: 10px 10px 10px 0px;
   border-bottom: 1px solid lightgray;
 }

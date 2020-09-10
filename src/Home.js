@@ -1,6 +1,7 @@
 import React from 'react'
 import "./Home.css"
 import Product from './Product'
+import { store } from 'react-notifications-component';
 
 function Home() {
     return (

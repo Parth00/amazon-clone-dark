@@ -7,6 +7,8 @@ import Checkout from './Checkout';
 import Login from "./Login";
 import { auth } from "./firebase";
 import { useStateValue } from './StateProvider';
+import ReactNotification from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
 
 function App() {
   const [{ }, dispatch] = useStateValue();
@@ -32,6 +34,7 @@ function App() {
   return (
     <Router>
       <div className="app">
+        <ReactNotification />
         <Switch>
           <Route path="/login">
             <Login />

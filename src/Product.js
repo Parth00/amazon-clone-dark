@@ -1,6 +1,7 @@
 import React from 'react'
 import './Product.css';
 import { useStateValue } from './StateProvider';
+import { store } from 'react-notifications-component';
 
 function Product({ id, title, image, price, rating }) {
     const [{ }, dispatch] = useStateValue();
@@ -16,6 +17,20 @@ function Product({ id, title, image, price, rating }) {
                 price: price,
                 rating: rating
             },
+        });
+
+        store.addNotification({
+            title: "Added successfully to the basket!",
+            message: title + " - $" + price,
+            type: "success",
+            insert: "top",
+            container: "bottom-right",
+            animationIn: ["animated", "fadeIn"],
+            animationOut: ["animated", "fadeOut"],
+            dismiss: {
+                duration: 3000,
+                onScreen: true
+            }
         });
     };
 

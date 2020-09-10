@@ -6,6 +6,8 @@
 ```bash
 npm install && npm start watch
 ```
+## LIVE LINK ##
+https://clone-c18a0.web.app/
 
 ## AUTHOR DETAILS ##
 

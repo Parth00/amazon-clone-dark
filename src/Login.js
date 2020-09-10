@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import "./Login.css";
 import { Link, useHistory } from "react-router-dom";
-import { auth } from "./firebase"
+import { auth } from "./firebase";
+import { store } from 'react-notifications-component';
 
 function Login() {
     const history = useHistory();
@@ -28,10 +29,41 @@ function Login() {
             .then((auth) => {
                 // successfully created a new user with email and password
                 if (auth) {
+                    setEmail('');
+                    setPassword('');
+                    store.addNotification({
+                        title: "Registration successful",
+                        message: "Please login to continue",
+                        type: "success",
+                        insert: "top",
+                        container: "top-center",
+                        animationIn: ["animated", "fadeIn"],
+                        animationOut: ["animated", "fadeOut"],
+                        dismiss: {
+                            duration: 4000,
+                            onScreen: true
+                        }
+                    });
                     history.push('/login')
                 }
             })
-            .catch(error => alert(error.message))
+            .catch(error => {
+                setEmail('');
+                setPassword('');
+                store.addNotification({
+                    title: "Error!",
+                    message: error.message,
+                    type: "danger",
+                    insert: "top",
+                    container: "top-center",
+                    animationIn: ["animated", "fadeIn"],
+                    animationOut: ["animated", "fadeOut"],
+                    dismiss: {
+                        duration: 4000,
+                        onScreen: true
+                    }
+                })
+            });
     }
 
     return (

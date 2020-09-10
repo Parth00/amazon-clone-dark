@@ -35,3 +35,17 @@ h2 {
   padding: 10px 10px 10px 0px;
   border-bottom: 1px solid lightgray;
 }
+
+.no__items {
+  color: white;
+  padding-top: 10px;
+}
+
+.go__shopping {
+  background: #f0c14b;
+  border: 1px solid;
+  margin-top: 20px;
+  padding: 8px;
+  border-color: #a88734 #9c7e31 #846a29;
+  color: #111;
+}

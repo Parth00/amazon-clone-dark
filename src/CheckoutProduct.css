@@ -47,3 +47,13 @@
   font-size: 17px;
   font-weight: 800;
 }
+
+.fade-out {
+  animation: fade 0.9s ease-out;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+}

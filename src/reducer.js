@@ -1,6 +1,7 @@
 export const initialState = {
     basket: [],
-    user: null
+    user: null,
+    fadeOutAnimate: 1
 };
 
 const reducer = (state, action) => {
@@ -28,7 +29,8 @@ const reducer = (state, action) => {
 
             return {
                 ...state,
-                basket: newBasket
+                basket: newBasket,
+                fadeOutAnimate: 0
             }
 
         case "SET_USER":

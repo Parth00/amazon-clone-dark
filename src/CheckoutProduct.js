@@ -1,29 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './CheckoutProduct.css'
 import FlipMove from "react-flip-move"
 import { useStateValue } from './StateProvider'
+import { store } from 'react-notifications-component';
 
 function CheckoutProduct({ id, image, title, price, rating }) {
     const [{ }, dispatch] = useStateValue();
-
-    // const customLeaveAnimation = {
-    //     from: { transform: 'scale(1, 1)' },
-    //     to: { transform: 'scale(0.5, 1) translateY(-20px)' }
-    // };
+    const [fadeOut, setFadeOut] = useState(0)
 
     const removeFromBasket = () => {
+        setFadeOut(1);
         // remove the item from the basket
         dispatch({
             type: 'REMOVE_FROM_BASKET',
             id: id,
         })
 
+        store.addNotification({
+            title: "Removed from the basket!",
+            message: title + " - $" + price,
+            type: "danger",
+            insert: "top",
+            container: "bottom-right",
+            animationIn: ["animated", "fadeIn"],
+            animationOut: ["animated", "fadeOut"],
+            dismiss: {
+                duration: 3000,
+                onScreen: true
+            }
+        });
     }
 
     return (
 
-
-        <div className='checkoutProduct'>
+        <div className={fadeOut > 0 ? 'checkoutProduct fade-out' : 'checkoutProduct'} onAnimationEnd={() => setFadeOut(0)}>
 
             <img className='checkoutProduct__image' src={image} alt="" />
 
@@ -46,9 +56,7 @@ function CheckoutProduct({ id, image, title, price, rating }) {
 
                 <button className="checkoutProduct__button" onClick={removeFromBasket}>Remove from basket</button>
             </div>
-
-        </div>
-
+        </div >
     )
 }
 

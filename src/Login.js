@@ -15,10 +15,25 @@ function Login() {
         auth
             .signInWithEmailAndPassword(email, password)
             .then(auth => {
-                console.log(auth);
                 history.push('/')
             })
-            .catch(error => alert(error.message))
+            .catch(error => {
+                setEmail('');
+                setPassword('');
+                store.addNotification({
+                    title: "Error!",
+                    message: error.message,
+                    type: "danger",
+                    insert: "top",
+                    container: "top-center",
+                    animationIn: ["animated", "fadeIn"],
+                    animationOut: ["animated", "fadeOut"],
+                    dismiss: {
+                        duration: 4000,
+                        onScreen: true
+                    }
+                })
+            });
     }
 
     const register = e => {

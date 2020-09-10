@@ -42,7 +42,7 @@ function Product({ id, title, image, price, rating }) {
                 alt=""
             />
 
-            <button onClick={addToBasket}>Add to Basket</button>
+            <button className='fade' onClick={addToBasket}>Add to Basket</button>
         </div>
     )
 }

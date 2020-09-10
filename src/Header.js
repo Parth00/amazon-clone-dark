@@ -5,13 +5,28 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import { Link } from 'react-router-dom';
 import { useStateValue } from './StateProvider';
 import { auth } from "./firebase";
+import { store } from 'react-notifications-component';
 
 function Header() {
     const [{ basket, user }] = useStateValue();
 
     const handleAuthentication = () => {
         if (user) {
-            auth.signOut();
+            if (auth.signOut()) {
+                store.addNotification({
+                    title: "Success!",
+                    message: "Logged out successfully!",
+                    type: "success",
+                    insert: "top",
+                    container: "bottom-right",
+                    animationIn: ["animated", "fadeIn"],
+                    animationOut: ["animated", "fadeOut"],
+                    dismiss: {
+                        duration: 4000,
+                        onScreen: true
+                    }
+                });
+            }
         }
     }
 

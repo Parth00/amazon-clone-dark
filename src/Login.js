@@ -15,6 +15,19 @@ function Login() {
         auth
             .signInWithEmailAndPassword(email, password)
             .then(auth => {
+                store.addNotification({
+                    title: "Success!",
+                    message: "Login successful!",
+                    type: "success",
+                    insert: "top",
+                    container: "bottom-right",
+                    animationIn: ["animated", "fadeIn"],
+                    animationOut: ["animated", "fadeOut"],
+                    dismiss: {
+                        duration: 4000,
+                        onScreen: true
+                    }
+                });
                 history.push('/')
             })
             .catch(error => {

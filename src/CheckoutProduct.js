@@ -4,7 +4,7 @@ import FlipMove from "react-flip-move"
 import { useStateValue } from './StateProvider'
 import { store } from 'react-notifications-component';
 
-function CheckoutProduct({ id, image, title, price, rating }) {
+function CheckoutProduct({ id, image, title, price, rating, hideButton }) {
     const [{ }, dispatch] = useStateValue();
     const [fadeOut, setFadeOut] = useState(0)
 
@@ -54,7 +54,10 @@ function CheckoutProduct({ id, image, title, price, rating }) {
                     </p>
                 </div>
 
-                <button className="checkoutProduct__button" onClick={removeFromBasket}>Remove from basket</button>
+                {!hideButton && (
+                    <button className="checkoutProduct__button" onClick={removeFromBasket}>Remove from basket</button>
+                )}
+
             </div>
         </div >
     )

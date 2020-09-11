@@ -2,10 +2,14 @@
   display: flex;
   margin-top: 20px;
   margin-bottom: 20px;
-  /* color: white; */
+  color: black;
+  /* background-color: #161625; */
+
   background-color: white;
   border-radius: 10px;
   box-shadow: 7px 5px 9px gray;
+
+
 }
 
 .checkoutProduct__info {
@@ -23,7 +27,7 @@
   color: #111;
 } */
 
-.checkoutProduct__info > button {
+.checkoutProduct__info>button {
   background: #f0c14b;
   border: 1px solid;
   margin-top: 20px;

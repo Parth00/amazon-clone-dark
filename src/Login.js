@@ -125,6 +125,9 @@ function Login() {
 
                     <button onClick={register}
                         className="login__registerButton"> Create your Amazon Account </button>
+
+                    <button onClick={e => { history.push('/') }}
+                        className="login__registerButton"> Continue using guest </button>
                 </form>
             </div>
         </div>

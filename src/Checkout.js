@@ -3,16 +3,10 @@ import "./Checkout.css";
 import { Link } from 'react-router-dom';
 import Subtotal from "./Subtotal"
 import { useStateValue } from './StateProvider';
-import FlipMove from "react-flip-move";
 import CheckoutProduct from './CheckoutProduct';
 
 function Checkout() {
     const [{ basket, user }] = useStateValue();
-
-    const ticketNotVisibleState = {
-        transform: "translateX(-100%)",
-        opacity: 0.1
-    };
 
     return (
         <div className='checkout'>
